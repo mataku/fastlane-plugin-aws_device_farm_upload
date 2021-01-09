@@ -15,7 +15,7 @@ module Fastlane
 
         project_arn = params[:device_farm_project_arn]
         
-        require 'aws-device-farm'
+        require 'aws-sdk-devicefarm'
         device_farm_client = Aws::DeviceFarm::Client.new(
           region: 'us-west-2',
           credentials: Aws::Credentials.new(access_key_id, secret_access_key)
