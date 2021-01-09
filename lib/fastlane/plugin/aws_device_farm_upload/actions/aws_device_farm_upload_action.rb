@@ -4,10 +4,13 @@ module Fastlane
   module Actions
     class AwsDeviceFarmUploadAction < Action
       def self.run(params)
-
         file_path = params[:file_path]
         file_name = params[:file_name]
         file_type = params[:file_type]
+
+        if (file_path.to_s.empty? || file_name.to_s.empty? || file_type.to_s.empty?)
+          UI.user_error!("No file_path, file_name, file_type given. Specify them.")
+        end
 
         access_key_id = params[:aws_access_key_id]
         secret_access_key = params[:aws_secret_access_key]
@@ -109,10 +112,6 @@ module Fastlane
       end
 
       def self.is_supported?(platform)
-        # Adjust this if your plugin only works for a particular platform (iOS vs. Android, for example)
-        # See: https://docs.fastlane.tools/advanced/#control-configuration-by-lane-and-by-platform
-        #
-        # [:ios, :mac, :android].include?(platform)
         true
       end
     end
