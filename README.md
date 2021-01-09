@@ -11,6 +11,11 @@
     - devicefarm:GetProject
     - devicefarm:ListUploads
 
+
+    If a file with the specified name exists in the project, it will be overwritten.
+
+    Because some upload types like `ANDROID_APP` cannot use `devicefarm:UpdateUpload` to update, it needs to do the create action after the delete action to update. Therefore, it requires `devicefarm:CreateUpload` and `devicefarm:DeleteUpload` permissions instead of `devicefarm:UpdateUpload`.
+
 2. Add plugin to fastlane
 
 ```shell
