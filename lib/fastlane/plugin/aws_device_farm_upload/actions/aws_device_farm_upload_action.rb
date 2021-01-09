@@ -27,6 +27,7 @@ module Fastlane
           # Some files (e.g. ANDROID_APP) cannot be updated, so delete them first when uploading a file with the same name.
           delete_file(device_farm_client, project_arn, file_name, file_type)
           upload_file(device_farm_client, project_arn, file_name, file_path, file_type)
+          UI.success('Successfully uploaded file to AWS Device Farm project')
         rescue => e
           UI.user_error!("#{e}")
         end
