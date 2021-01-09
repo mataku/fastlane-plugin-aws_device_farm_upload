@@ -12,7 +12,9 @@ fastlane add_plugin aws_device_farm_upload
 
 ## About aws_device_farm_upload
 
-Uploads specified file to AWS Device Farm project.
+Uploads a specified file like IPA, APK to AWS Device Farm project.
+
+For example, use to manage app in Device Farm remote access sessions.
 
 ## Example
 
