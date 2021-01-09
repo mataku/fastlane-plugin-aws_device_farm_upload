@@ -106,7 +106,7 @@ module Fastlane
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :file_type,
                                        env_name: '',
-                                       description: 'Device Farm upload\'s upload type. e.g. ANDROID_APP, IOS_APP',
+                                       description: 'Device Farm upload\'s upload type. e.g. ANDROID_APP, IOS_APP. See: https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax',
                                        optional: false)
         ]
       end
