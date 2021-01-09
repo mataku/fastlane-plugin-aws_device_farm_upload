@@ -103,7 +103,7 @@ module Fastlane
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :file_path,
                                        env_name: '',
-                                       description: 'Path to the file. e.g. ./app/build/outputs/universal_apk/debug/app-debug-universal.apk',
+                                       description: 'Full path to the file. e.g. /home/user/app/build/outputs/universal_apk/debug/app-debug-universal.apk',
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :file_type,
                                        env_name: '',
