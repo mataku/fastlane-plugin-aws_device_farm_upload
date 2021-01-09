@@ -4,10 +4,32 @@
 
 ## Getting Started
 
-This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-aws_device_farm_upload`, add it to your project by running:
+1. Generate IAM user with policy which grants access to below.
 
-```bash
-fastlane add_plugin aws_device_farm_upload
+    - devicefarm:CreateUpload
+    - devicefarm:DeleteUpload
+    - devicefarm:GetProject
+    - devicefarm:ListUploads
+
+2. Add plugin to fastlane
+
+```shell
+bundle exec fastlane add_plugin aws_device_farm_upload
+```
+
+3. Add `aws_device_farm_upload` action to your lane in `Fastfile`.
+
+```ruby
+lane :upload_apk_to_device_farm do
+  aws_device_farm_upload(
+    aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    device_farm_project_arn: ENV['DEVICE_FARM_PROJECT_ARN'],
+    file_path: '/home/mataku/app/build/outputs/universal_apk/debug/app-debug-universal.apk',
+    file_name: 'android-app-debug.apk',
+    file_type: 'ANDROID_APP' # See: https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax
+  )
+end
 ```
 
 ## About aws_device_farm_upload
