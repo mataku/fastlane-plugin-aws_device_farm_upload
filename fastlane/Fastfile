@@ -1,3 +1,10 @@
-lane :test do
-  aws_device_farm_upload
+lane :upload_file do
+  aws_device_farm_upload(
+    aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+    device_farm_project_arn: ENV['DEVICE_FARM_PROJECT_ARN'],
+    file_path: './app/build/outputs/universal_apk/debug/app-debug-universal.apk',
+    file_name: 'android-app-debug.apk',
+    file_type: 'ANDROID_APP'
+  )
 end

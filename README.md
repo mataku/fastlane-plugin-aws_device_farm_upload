@@ -12,13 +12,11 @@ fastlane add_plugin aws_device_farm_upload
 
 ## About aws_device_farm_upload
 
-Uploads specified file to AWS Device Farm project
+Uploads specified file to AWS Device Farm project.
 
 ## Example
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
-
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin.
 
 ## Run tests for this plugin
 

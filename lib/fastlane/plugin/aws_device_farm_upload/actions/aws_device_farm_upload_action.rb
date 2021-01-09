@@ -21,7 +21,7 @@ module Fastlane
           credentials: Aws::Credentials.new(access_key_id, secret_access_key)
         )
 
-        # Some files cannot update, so delete first when uploads file with same name.
+        # Some files (e.g. ANDROID_APP) cannot be updated, so delete them first when uploading a file with the same name.
         delete_file(device_farm_client, project_arn, file_name, file_type)
         upload_file(device_farm_client, project_arn, file_name, file_path, file_type)
       end
@@ -88,15 +88,15 @@ module Fastlane
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :device_farm_project_arn,
                                        env_name: '',
-                                       description: 'The ARN of the project for the upload.',
+                                       description: 'The ARN of the project for the upload',
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :file_name,
                                        env_name: '',
-                                       description: 'The upload\'s file name.',
+                                       description: 'The upload\'s file name',
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :file_path,
                                        env_name: '',
-                                       description: 'Path to the file',
+                                       description: 'Path to the file. e.g. ./app/build/outputs/universal_apk/debug/app-debug-universal.apk',
                                        optional: false),
           FastlaneCore::ConfigItem.new(key: :file_type,
                                        env_name: '',
