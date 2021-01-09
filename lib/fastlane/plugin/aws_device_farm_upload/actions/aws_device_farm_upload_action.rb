@@ -78,11 +78,30 @@ module Fastlane
 
       def self.available_options
         [
-          # FastlaneCore::ConfigItem.new(key: :your_option,
-          #                         env_name: "AWS_DEVICE_FARM_UPLOAD_YOUR_OPTION",
-          #                      description: "A description of your option",
-          #                         optional: false,
-          #                             type: String)
+          FastlaneCore::ConfigItem.new(key: :aws_access_key_id,
+                                       env_name: '',
+                                       description: 'AWS Access Key ID',
+                                       optional: false),
+          FastlaneCore::ConfigItem.new(key: :aws_secret_access_key,
+                                       env_name: '',
+                                       description: 'AWS Secret Access Key',
+                                       optional: false),
+          FastlaneCore::ConfigItem.new(key: :device_farm_project_arn,
+                                       env_name: '',
+                                       description: 'The ARN of the project for the upload.',
+                                       optional: false),
+          FastlaneCore::ConfigItem.new(key: :file_name,
+                                       env_name: '',
+                                       description: 'The upload\'s file name.',
+                                       optional: false),
+          FastlaneCore::ConfigItem.new(key: :file_path,
+                                       env_name: '',
+                                       description: 'Path to the file',
+                                       optional: false),
+          FastlaneCore::ConfigItem.new(key: :file_type,
+                                       env_name: '',
+                                       description: 'Device Farm upload\'s upload type. e.g. ANDROID_APP, IOS_APP',
+                                       optional: false)
         ]
       end
 
