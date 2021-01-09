@@ -1,5 +1,4 @@
 require 'fastlane/action'
-require_relative '../helper/aws_device_farm_upload_helper'
 
 module Fastlane
   module Actions
@@ -21,9 +20,13 @@ module Fastlane
           credentials: Aws::Credentials.new(access_key_id, secret_access_key)
         )
 
-        # Some files (e.g. ANDROID_APP) cannot be updated, so delete them first when uploading a file with the same name.
-        delete_file(device_farm_client, project_arn, file_name, file_type)
-        upload_file(device_farm_client, project_arn, file_name, file_path, file_type)
+        begin
+          # Some files (e.g. ANDROID_APP) cannot be updated, so delete them first when uploading a file with the same name.
+          delete_file(device_farm_client, project_arn, file_name, file_type)
+          upload_file(device_farm_client, project_arn, file_name, file_path, file_type)
+        rescue => e
+          UI.user_error!("#{e}")
+        end
       end
 
       def self.delete_file(device_farm_client, project_arn, file_name, file_type)
