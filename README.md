@@ -2,6 +2,12 @@
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-aws_device_farm_upload)
 
+## About aws_device_farm_upload
+
+Uploads a specified file like IPA, APK to AWS Device Farm project.
+
+For example, use to manage app in Device Farm remote access sessions.
+
 ## Getting Started
 
 1. Generate IAM user with policy which grants access to below.
@@ -36,12 +42,6 @@ lane :upload_apk_to_device_farm do
   )
 end
 ```
-
-## About aws_device_farm_upload
-
-Uploads a specified file like IPA, APK to AWS Device Farm project.
-
-For example, use to manage app in Device Farm remote access sessions.
 
 ## Example
 
