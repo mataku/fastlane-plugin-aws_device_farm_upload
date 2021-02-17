@@ -43,7 +43,7 @@ module Fastlane
         end
 
         unless uploaded_file.nil?
-          devicefarm_client.delete_upload({
+          device_farm_client.delete_upload({
             arn: uploaded_file.arn
           })
         end
